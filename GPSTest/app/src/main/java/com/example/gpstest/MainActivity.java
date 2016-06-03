@@ -82,9 +82,32 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         //populating pointList
         pointList = new ArrayList<>();
-        pointList.add(new PointOfInterest("Point A", 28.57031893, 77.26256392));
-        pointList.add(new PointOfInterest("Point B", 28.5706638, 77.26319753));
+//        pointList.add(new PointOfInterest("Point A", 28.57031893, 77.26256392));
+//        pointList.add(new PointOfInterest("Point B", 28.5706638, 77.26319753));
+        pointList.add(new PointOfInterest("Introduction at gate", 28.525392, 77.186973));
+        pointList.add(new PointOfInterest("Entering the Complex", 28.525392, 77.186696));
+        pointList.add(new PointOfInterest("At the Mosque Entrance", 28.524791, 77.185605));
+        pointList.add(new PointOfInterest("Inside the Mosque", 28.524785, 77.185329));
+        pointList.add(new PointOfInterest("Iron Pillar", 28.524762, 77.184965));
+        pointList.add(new PointOfInterest("Screen of Arches", 28.524739, 77.184848));
+        pointList.add(new PointOfInterest("Iltutmish's Extension", 28.525053, 77.184867));
+        pointList.add(new PointOfInterest("Alai Minar", 28.525817, 77.185269));
+        pointList.add(new PointOfInterest("Tomb of Iltutmish", 28.525174, 77.184555));
+        pointList.add(new PointOfInterest("Alauddin's Madrasa", 28.524308, 77.184372));
+        pointList.add(new PointOfInterest("Qutab Minar", 28.524403, 77.185427));
+        pointList.add(new PointOfInterest("Alai Darwaza", 28.524332, 77.185658));
+        pointList.add(new PointOfInterest("Imam Zamin's Tomb", 28.524194, 77.185889));
+        pointList.add(new PointOfInterest("Major Smith's Folly", 28.523969, 77.186543));
+        pointList.add(new PointOfInterest("Sanderson's Sundial", 28.524226, 77.186365));
+        pointList.add(new PointOfInterest("Mughal Sarai & Garden", 28.525630, 77.186524));
+        pointList.add(new PointOfInterest("Metcalf's Follies", 28.524897, 77.187204));
 
+
+        for (int i = 0; i < pointList.size(); i++) {
+            PointOfInterest p = pointList.get(i);
+            summaryList.add((i + 1) + ". " + p);
+        }
+        summaryListAdapter.notifyDataSetChanged();
 
         //getting GPS location from LocationManager
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
