@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 //                closest = p;
 //            }
 //        }
-        Toast.makeText(getBaseContext(), "Refreshed data", Toast.LENGTH_LONG).show();
+//        Toast.makeText(getBaseContext(), "Refreshed data", Toast.LENGTH_LONG).show();
         summaryListAdapter.notifyDataSetChanged();
         closestPointView.setText(closest.distanceSummary(location));
     }
