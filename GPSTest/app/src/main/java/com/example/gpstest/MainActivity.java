@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,8 +46,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         setContentView(R.layout.activity_main);
 
         //Requesting permissions
-        if (!hasPermission(Manifest.permission.ACCESS_FINE_LOCATION)) {
-            requestPermissions(INITIAL_PERMS, INITIAL_REQUEST);
+        if (Build.VERSION.SDK_INT >= 23 && PackageManager.PERMISSION_GRANTED != checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)) {
+                requestPermissions(INITIAL_PERMS, INITIAL_REQUEST);
         }
 
         //Getting views
@@ -171,10 +172,4 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void onProviderDisabled(String provider) {
         Toast.makeText(getBaseContext(), "Gps turned off ", Toast.LENGTH_LONG).show();
     }
-
-    private boolean hasPermission(String perm) {
-        return (PackageManager.PERMISSION_GRANTED == checkSelfPermission(perm));
-    }
-
-
 }
